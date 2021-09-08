@@ -1,12 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- HTML structure for testing data from the API -->
 
 <head>
     <title>Weather forecast</title>
+    <style>
+        span {
+            display: block
+        }
+    </style>
 </head>
 
 <body>
     <h1>Weather forecast</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <input type="text" name="city">
+            <div>
+                <button type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+    {% if country_code %}
+    <div>
+        <span>{{country_name}} ({{country_code}})</span>
+        <span>Coordinates: {{latitude}}, {{longitude}}</span>
+        <span>Temperature: {{temperature}}</span>
+        <span>Pressure: {{pressure}}</span>
+        <span>Humidity: {{humidity}}</span>
+        <span>Information: {{main_information}} ({{description}}) </span>
+        <img src="http://openweathermap.org/img/w/{{icon}}.png" alt="Image">
+        <span>Current time: {{current_time}}</span>
+        <span>Sunrise: {{sunrise}}</span>
+        <span>Sunset: {{sunset}}</span>
+    </div>
+    {% endif %}
 </body>
 
 </html>
