@@ -1,41 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<!-- HTML structure for testing data from the API -->
+{% extends 'main/base.html'%}
+{% load static %}
 
-<head>
-    <title>Weather forecast</title>
-    <style>
-        span {
-            display: block
-        }
-    </style>
-</head>
-
-<body>
-    <h1>Weather forecast</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <div>
-            <input type="text" name="city">
-            <div>
-                <button type="submit">Search</button>
+{% block content %}
+<div class="container h-100 align-self-center">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <h1>Weather forecast</h1>
+            <h2>Current weather forecast for the city you are looking for</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 d-flex justify-content-center">
+            <div class="search-bar d-flex align-items-center">
+                <form method="POST">
+                    {% csrf_token %}
+                    <input class="search-input" id="input-city" type="text" name="city"
+                        placeholder="Search for a city..." title="Type city name">
+                    <button type="submit" id="button-search" class="btn search-button"><i
+                            class="material-icons align-bottom">search</i></button>
+                </form>
             </div>
         </div>
-    </form>
+    </div>
     {% if country_code %}
-    <div>
-        <span>{{country_name}} ({{country_code}})</span>
-        <span>Coordinates: {{latitude}}, {{longitude}}</span>
-        <span>Temperature: {{temperature}}</span>
-        <span>Pressure: {{pressure}}</span>
-        <span>Humidity: {{humidity}}</span>
-        <span>Information: {{main_information}} ({{description}}) </span>
-        <img src="http://openweathermap.org/img/w/{{icon}}.png" alt="Image">
-        <span>Current time: {{current_time}}</span>
-        <span>Sunrise: {{sunrise}}</span>
-        <span>Sunset: {{sunset}}</span>
+    <div class="row ">
+        <div class="col-sm-12 col-md-6 text-center">
+            <h3>Weather</h3>
+            <img src="http://openweathermap.org/img/w/{{icon}}.png" alt="Weather image">
+            <div id="information" class="information-container">
+                <span><i class="material-icons align-bottom">location_on</i>City: {{country_name}}
+                    ({{country_code}})</span>
+                <span><i class="material-icons align-bottom">thermostat</i>Temperature: {{temperature}}</span>
+                <span><i class="material-icons align-bottom">speedometer</i>Pressure: {{pressure}}</span>
+                <span><i class="material-icons align-bottom">water_drop</i>Humidity: {{humidity}}</span>
+                <span><i class="material-icons align-bottom">info</i>Information: {{main_information}}
+                    ({{description}})</span>
+                <span><i class="material-icons align-bottom">schedule</i>Current time: {{current_time}}</span>
+                <span><i class="material-icons align-bottom">wb_sunny</i>Sunrise: {{sunrise}}</span>
+                <span><i class="material-icons align-bottom">nightlight_round</i>Sunset: {{sunset}}</span>
+
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 text-center">
+            <h3>City location</h3>
+        </div>
     </div>
     {% endif %}
-</body>
-
-</html>
+</div>
+{% endblock %}
