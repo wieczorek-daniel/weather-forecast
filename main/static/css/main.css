@@ -1,0 +1,169 @@
+body,
+html {
+	height: 100vh;
+	min-width: 330px;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	font-size: 20px;
+	background-color: #f8f8fa;
+}
+
+.jumbotron {
+	margin: 0;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: #30c9e8;
+}
+
+.main-background {
+	background-color: #30c9e8;
+}
+
+.row:nth-child(-n + 2) {
+	background-color: #30c9e8;
+}
+
+h1 {
+	color: #fff;
+	font-weight: 600;
+	font-size: 60px;
+	margin: 100px 0 20px 0;
+}
+
+h2 {
+	color: #fff;
+	font-size: 25px;
+	font-weight: 600;
+	margin-bottom: 50px;
+}
+
+.search-bar {
+	background-color: transparent;
+	border: solid 3px #fff;
+	border-radius: 30px;
+	height: 60px;
+	padding: 10px;
+	margin-bottom: 100px;
+}
+
+.search-input {
+	float: left;
+	width: 200px;
+	margin: 0 10px;
+	border: none;
+	caret-color: #fff;
+	background-color: transparent;
+	font-weight: 600;
+	color: #fff;
+}
+
+.search-input:focus {
+	outline: none !important;
+	border: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+input:-webkit-autofill {
+	-webkit-background-clip: text;
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+	.search-input {
+		width: 300px;
+	}
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+	.search-input {
+		width: 400px;
+	}
+
+	.card {
+		margin-bottom: 0px;
+	}
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1280px) {
+	.search-input {
+		width: 400px;
+	}
+}
+
+@media only screen and (min-width: 1281px) {
+	.search-input {
+		width: 400px;
+	}
+}
+
+.search-button {
+	height: 40px;
+	width: 40px;
+	float: right;
+	background-color: transparent;
+	border-radius: 50%;
+	color: #fff;
+}
+
+.search-button i {
+	padding: 0;
+}
+
+.search-button:hover {
+	background-color: #fff;
+	color: #000;
+	text-decoration: none;
+}
+
+.search-button:focus {
+	outline: none !important;
+	border: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+.card {
+	padding: 0;
+	margin-bottom: 20px;
+}
+
+.card-header {
+	color: #000;
+	font-weight: 600;
+}
+
+.half-background {
+	background-image: linear-gradient(#30c9e8 50%, #f8f8fa 0%);
+}
+
+.weather-container span {
+	display: block;
+	margin-bottom: 10px;
+	color: #000;
+	text-align: left;
+}
+
+.weather-container .material-icons {
+	padding-right: 10px;
+}
+
+::placeholder {
+	color: #fff;
+	opacity: 1;
+}
+
+:-ms-input-placeholder {
+	color: #fff;
+}
+
+::-ms-input-placeholder {
+	color: #fff;
+}
