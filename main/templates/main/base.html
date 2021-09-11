@@ -22,6 +22,12 @@
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,700;1,100;1,900&display=swap"
         rel="stylesheet">
+    <!-- Scripts -->
+    {% block scripts %}
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    {% endblock %}
     <!--Favicon -->
     <!-- Icon made by schollidesign from www.findicons.com -->
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" size="32" type="image/x-icon">
