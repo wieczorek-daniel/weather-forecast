@@ -36,11 +36,11 @@
         {% endif %}
         {% if country_code %}
         <div class="row {% if country_code %}half-background{% endif %}">
-            <div class="col-sm-12 col-lg-4 card text-center offset-lg-1">
+            <div class="col-sm-12 col-lg-4 card text-center offset-lg-1 mx-2 mx-md-auto">
                 <div class="card-header">
                     Weather
                 </div>
-                <div id="weather" class="weather-container card-body">
+                <div class="weather-container card-body">
                     <img src="http://openweathermap.org/img/wn/{{icon}}@2x.png" alt="Weather image">
                     <span><i class="material-icons align-text-top card-text">location_on</i>City: {{country_name}}
                         ({{country_code}})</span>
@@ -54,12 +54,12 @@
                     <span><i class="material-icons align-text-top">nightlight_round</i>Sunset: {{sunset}}</span>
                 </div>
             </div>
-            <div class="col-sm-12 col-lg-4 card text-center offset-lg-2">
+            <div class="col-sm-12 col-lg-4 card text-center offset-lg-2 mx-2 mx-md-auto">
                 <div class="card-header">
                     City location
                 </div>
-                <div class="card-body">
-
+                <div class="map card-body">
+                    {{map|safe}}
                 </div>
             </div>
         </div>

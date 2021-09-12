@@ -2,6 +2,8 @@ from django.shortcuts import render
 import urllib.request
 import urllib.parse
 import json
+import folium
+from branca.element import Figure
 from datetime import datetime
 from weather_forecast.settings import OPENWEATHERMAP_API_KEY
 
@@ -13,6 +15,16 @@ def index(request):
         try:
             data_source = urllib.request.urlopen(request_url).read()
             api_data = json.loads(data_source)
+
+            figure = Figure(height="100%")
+            map = folium.Map(location=[api_data['coord']['lat'], api_data['coord']['lon']], zoom_start=10)
+            folium.Marker(
+                location=[api_data['coord']['lat'], api_data['coord']['lon']],
+                popup=api_data['name'],
+                icon=folium.Icon(icon="cloud"),
+            ).add_to(map)
+            figure.add_child(map)
+
             data = {
                 "country_code": api_data['sys']['country'],
                 "country_name": api_data['name'],
@@ -27,6 +39,7 @@ def index(request):
                 "current_time": f"{datetime.utcfromtimestamp(api_data['dt'] + api_data['timezone']):%Y-%m-%d %I:%M %p}",
                 "sunrise": f"{datetime.utcfromtimestamp(api_data['sys']['sunrise'] + api_data['timezone']):%Y-%m-%d %I:%M %p}",
                 "sunset": f"{datetime.utcfromtimestamp(api_data['sys']['sunset'] + api_data['timezone']):%Y-%m-%d %I:%M %p}",
+                "map": figure._repr_html_(),
             }
         except urllib.error.HTTPError:
             data = {
