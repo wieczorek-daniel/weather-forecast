@@ -36,7 +36,6 @@ python3 manage.py runserver
 ```
 
 ## Preview
-## Preview
 <p align="center">
   <img src="readme-image.png">
 </p>
