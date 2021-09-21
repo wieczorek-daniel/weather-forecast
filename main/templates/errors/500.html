@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="{% if not country_code %}d-flex align-items-center h-100 main-background{% endif %}">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1>Error 500</h1>
+                <h2>Server error</h2>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
